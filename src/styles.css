@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+  font-family: var(--mat-sys-body-large-font, Roboto, sans-serif);
+}
