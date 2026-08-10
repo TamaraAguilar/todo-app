@@ -9,6 +9,6 @@ export class TodoService {
   private apiUrl = 'https://jsonplaceholder.typicode.com/todos';
 
   getTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(`${this.apiUrl}?_limit=10`);
+    return this.http.get<Todo[]>(`${this.apiUrl}?_limit=5`);
   }
 }
