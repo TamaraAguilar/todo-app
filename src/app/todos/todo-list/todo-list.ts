@@ -2,10 +2,11 @@ import { Component, inject, signal } from '@angular/core';
 import { TodoService } from '../../core/services/todo';
 import { Todo } from '../../shared/models/todo.model';
 import { TodoItem } from '../todo-item/todo-item';
+import { TodoForm } from '../todo-form/todo-form';
 
 @Component({
   selector: 'app-todo-list',
-  imports: [TodoItem],
+  imports: [TodoItem, TodoForm],
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.css',
 })
@@ -36,5 +37,15 @@ export class TodoList {
 
   onDeleteTodo(id: number): void {
     this.todos.update((list) => list.filter((t) => t.id !== id));
+  }
+
+  onAddTodo(title: string): void {
+    const newTodo: Todo = {
+      id: Date.now(),
+      userId: 1,
+      title,
+      completed: false,
+    };
+    this.todos.update((list) => [newTodo, ...list]);
   }
 }

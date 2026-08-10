@@ -1,6 +1,8 @@
 <div class="todo-container">
   <h1>Todo List</h1>
 
+  <app-todo-form (addTodo)="onAddTodo($event)"></app-todo-form>
+
   @if (loading()) {
     <div>Loading todos...</div>
   } @else {
